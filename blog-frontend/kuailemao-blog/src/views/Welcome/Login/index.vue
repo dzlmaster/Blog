@@ -29,12 +29,12 @@ const userStore = useUserStore()
 function userLogin() {
   formRef.value.validate((valid) => {
     if (valid) {
-      login(form).then(res => {
+      login(form).then(async res => {
         if (res.code === 200) {
           SET_TOKEN(res.data.token, res.data.expire, form.remember)
           ElMessage.success('登录成功')
-          router.push('/')
-          userStore.getInfo()
+          await userStore.getInfo()
+          await router.push('/')
         } else {
           ElMessage.error(res.msg)
         }

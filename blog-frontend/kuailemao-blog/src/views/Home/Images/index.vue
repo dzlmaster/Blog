@@ -12,7 +12,7 @@
 <script setup lang="ts">
 
 import {backGetBanners} from "@/apis/website";
-import {Ref} from "vue";
+import {ref, onMounted, Ref} from "vue";
 
 const imageList = <Ref<String[]>>ref()
 

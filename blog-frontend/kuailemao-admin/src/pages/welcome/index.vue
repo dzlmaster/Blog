@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="welcome-container">
     <h2 style="color: #00ae9e;font-weight: bold">
       欢迎进入博客的后台首页
     </h2>
@@ -16,11 +16,11 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作者是一个主后端的全栈开发小白，前台页面可能不是很好看，部分前端代码写的也很烂，作者真的是已经尽力了，通过这个项目也是学习到了很多的前端知识，
       作者并不是专业的前端人员，该项目几乎集成了作者所学。
     </h3>
-    <h3>
+    <!-- <h3>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开源地址：<a href="https://gitee.com/kuailemao/ruyu-blog" target="_blank">https://gitee.com/kuailemao/ruyu-blog</a> |
       <a href="https://github.com/kuailemao/Ruyu-Blog" target="_blank">https://github.com/kuailemao/Ruyu-Blog</a> ，
       该项目qq交流群：635887836，欢迎加入进行技术交流，技术学习。
-    </h3>
+    </h3> -->
     <h3>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另外，后台页面使用了一个叫 Antdv Pro 的后台通用框架，在这里感谢 Antdv Pro 作者能提供如此美观的后台通用后台系统，附上链接 https://docs.antdv-pro.com/。
     </h3>
@@ -32,5 +32,12 @@
 </template>
 
 <style scoped lang="less">
-
+.welcome-container {
+  background-image: url('https://bxvv-blog.oss-cn-beijing.aliyuncs.com/967cfc9ba64388c7bec52e0256730d55_720.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 10vh; // 确保高度足以显示背景
+  padding: 20px;
+}
 </style>

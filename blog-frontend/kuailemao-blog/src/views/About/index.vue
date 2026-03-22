@@ -26,7 +26,7 @@ const websiteStore = useWebsiteStore()
       <div class="flex flex-col justify-center items-center xl:w-[40%] lg:w-[60%] h-full">
         <div class="w-full h-[60vh] flex flex-col justify-center items-center">
           <div class="w-full text-[3rem] text-center text-gray-600 dark:text-gray-300 max-lg:text-[2rem] max-lg:pb-6">
-            一名中二Web全栈小白
+            一名中二Web后端小白
           </div>
           <div class="mt-4 text-center text-gray-500 dark:text-gray-300 max-lg:px-3">
             千年以前，看见元婴强者自己的小世界，非常羡慕，于是心中立誓，我也要变强，后抛弃世间情爱，终踏上修仙一途，虽一介散修，但亦往，经历千磨万难，
@@ -35,23 +35,23 @@ const websiteStore = useWebsiteStore()
           </div>
         </div>
         <div class="w-full h-[40vh] flex flex-col justify-center items-center">
-          <div class="text-gray-600 dark:text-gray-300 ">------------------------我的个人导航------------------------</div>
+          <!-- <div class="text-gray-600 dark:text-gray-300 ">------------------------我的个人导航------------------------</div> -->
           <div class="flex justify-center items-center h-full">
-            <a href="https://github.com/kuailemao" target="_blank">
+            <!-- <a href="https://github.com/kuailemao" target="_blank">
               <div class="bg-white dark:bg-slate-800 w-[120px] h-[120px] flex justify-center items-center rounded-2xl drop-shadow-lg">
                 <SvgIcon name="github_icon" width="100px" height="100px"/>
               </div>
-            </a>
-            <a href="https://gitee.com/kuailemao" target="_blank"  class="mx-10 max-lg:mx-4">
+            </a> -->
+            <!-- <a href="https://gitee.com/kuailemao" target="_blank"  class="mx-10 max-lg:mx-4">
               <div class="bg-white dark:bg-slate-800 w-[120px] h-[120px] flex justify-center items-center rounded-2xl drop-shadow-lg">
                 <SvgIcon name="gitee_icon" width="100px" height="100px"/>
               </div>
-            </a>
-            <a href="https://space.bilibili.com/299105957" target="_blank">
+            </a> -->
+            <!-- <a href="https://space.bilibili.com/299105957" target="_blank">
               <div class="bg-white dark:bg-slate-800 w-[120px] h-[120px] flex justify-center items-center rounded-2xl drop-shadow-lg">
                 <SvgIcon name="bilibili_icon" width="100px" height="100px"/>
               </div>
-            </a>
+            </a> -->
           </div>
         </div>
       </div>

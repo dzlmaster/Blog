@@ -18,9 +18,15 @@ public class ArticleDetailVO {
     //文章id
     @Schema(description = "文章id")
     private Long id;
-    //作者id
-    @Schema(description = "作者id")
+    //作者 id
+    @Schema(description = "作者 id")
     private Long userId;
+    //作者昵称
+    @Schema(description = "作者昵称")
+    private String authorNickname;
+    //作者头像
+    @Schema(description = "作者头像")
+    private String authorAvatar;
     //分类名称
     @Schema(description = "分类名称")
     private String categoryName;

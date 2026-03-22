@@ -40,6 +40,8 @@ const articleDetail = ref({
   createTime: '',
   updateTime: '',
   userId: 0,
+  authorNickname: '',
+  authorAvatar: '',
   id: "0"
 })
 
@@ -285,7 +287,7 @@ function ReadingModeFunc() {
             <div class="copyright">
               <div class="author">
                 <svg-icon name="article_author"></svg-icon>
-                <strong>本文作者： {{ websiteStore.webInfo?.webmasterName }}</strong>
+                <strong>本文作者： {{ articleDetail.authorNickname }}</strong>
               </div>
               <div class="link">
                 <svg-icon name="author_link"></svg-icon>
@@ -456,7 +458,7 @@ function ReadingModeFunc() {
         <div class="copyright">
           <div class="author">
             <svg-icon name="article_author"></svg-icon>
-            <strong>本文作者： {{ websiteStore.webInfo?.webmasterName }}</strong>
+            <strong>本文作者： {{ articleDetail.authorNickname }}</strong>
           </div>
           <div class="link">
             <svg-icon name="author_link"></svg-icon>

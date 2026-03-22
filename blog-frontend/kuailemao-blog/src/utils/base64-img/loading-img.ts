@@ -1,1 +1,1 @@
-export const loadingImg = "https://image.kuailemao.xyz/blog/loading/img_loading.gif"
+export const loadingImg = "https://bxvv-blog.oss-cn-beijing.aliyuncs.com/4b1f97fbabfaf31b5ac64f0eb8633f40.gif"

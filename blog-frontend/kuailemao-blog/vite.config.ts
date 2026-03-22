@@ -91,11 +91,13 @@ export default defineConfig(({ mode }: ConfigEnv) => {
                     changeOrigin: true,
                     rewrite: (path) => path.replace(/^\/api/, '')
                 },
-                '/wapi': {
-                    target: `${loadEnv(mode, process.cwd()).VITE_MUSIC_SERVE}`,
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/wapi/, '')
-                }
+                ...(loadEnv(mode, process.cwd()).VITE_MUSIC_SERVE ? {
+                    '/wapi': {
+                        target: `${loadEnv(mode, process.cwd()).VITE_MUSIC_SERVE}`,
+                        changeOrigin: true,
+                        rewrite: (path) => path.replace(/^\/wapi/, '')
+                    }
+                } : {})
             }
         }
     }

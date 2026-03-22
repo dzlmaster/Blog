@@ -192,7 +192,8 @@ function onFinish() {
             message.error(`发布失败`)
             deleteCover(articleCover)
           }
-        }).catch(() => {
+        }).catch((msg) => {
+          message.error(msg || '发布失败')
           deleteCover(articleCover)
         })
       }

@@ -162,14 +162,16 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         List<ArticleTag> articleTags = articleTagMapper.selectList(new LambdaQueryWrapper<ArticleTag>().eq(ArticleTag::getArticleId, article.getId()));
         // 标签
         List<Tag> tags = tagMapper.selectBatchIds(articleTags.stream().map(ArticleTag::getTagId).toList());
-        // 当前文章的上一篇文章与下一篇文章,大于当前文章的最小文章与小于当前文章的最大文章
+        // 查询作者信息
+        User author = userMapper.selectById(article.getUserId());
+        // 当前文章的上一篇文章与下一篇文章，大于当前文章的最小文章与小于当前文章的最大文章
         LambdaQueryWrapper<Article> preAndNextWrapper = new LambdaQueryWrapper<>();
         preAndNextWrapper.lt(Article::getId, id);
         Article preArticle = articleMapper.selectOne(preAndNextWrapper.orderByDesc(Article::getId).last(SQLConst.LIMIT_ONE_SQL));
         preAndNextWrapper.clear();
         preAndNextWrapper.gt(Article::getId, id);
         Article nextArticle = articleMapper.selectOne(preAndNextWrapper.orderByAsc(Article::getId).last(SQLConst.LIMIT_ONE_SQL));
-
+    
         return article.asViewObject(ArticleDetailVO.class, vo -> {
             vo.setCategoryName(category.getCategoryName());
             vo.setCategoryId(category.getId());
@@ -181,6 +183,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             vo.setPreArticleTitle(preArticle == null ? "" : preArticle.getArticleTitle());
             vo.setNextArticleId(nextArticle == null ? 0 : nextArticle.getId());
             vo.setNextArticleTitle(nextArticle == null ? "" : nextArticle.getArticleTitle());
+            // 设置作者信息
+            if (author != null) {
+                vo.setAuthorNickname(author.getNickname());
+                vo.setAuthorAvatar(author.getAvatar());
+            }
         });
     }
 

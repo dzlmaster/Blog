@@ -1,7 +1,8 @@
 <template>
   <div class="loading loading-active" v-show="loadingStore.isLoading">
     <div class="load-box">
-      <img class="loading-img" src="https://image.kuailemao.xyz/blog/loading/loading-gif.gif" alt="Loading">
+      <!-- <img class="loading-img" src="https://bxvv-blog.oss-cn-beijing.aliyuncs.com/4b1f97fbabfaf31b5ac64f0eb8633f40.gif" alt="Loading"> -->
+       <div class="loading-text">Loading...</div>
       <span>比卡丘正在带着数据走向你~~</span>
     </div>
   </div>

@@ -40,20 +40,32 @@ public class LogQueueListener {
      */
     @RabbitListener(queues = RabbitConst.LOG_LOGIN_QUEUE,concurrency = "5-10")
     public void handlerLoginLog(LoginLog loginLog, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
-        log.info("监听登录日志队列,标识:{},数据：{}", tag, loginLog);
-        if (loginLog.getBrowser().startsWith("Unknown")) {
-            loginLog.setBrowser("未知");
+        log.info("监听登录日志队列，标识:{},数据：{}", tag, loginLog);
+        try {
+            if (loginLog.getBrowser().startsWith("Unknown")) {
+                loginLog.setBrowser("未知");
+            }
+            if (loginLog.getOs().startsWith("Unknown")) {
+                loginLog.setOs("未知");
+            }
+            if (loginLog.getType() == null) {
+                loginLog.setType(2);
+            }
+            if (loginLogMapper.insert(loginLog) > 0) {
+                ipService.refreshIpDetailAsyncByLogIdAndLogin(loginLog.getId());
+            }
+            log.info("登录日志标识:{}，数据库添加成功", tag);
+            // 手动确认消息
+            channel.basicAck(tag, false);
+        } catch (Exception e) {
+            log.error("处理登录日志失败，标识:{}", tag, e);
+            try {
+                // 拒绝消息并重新入队
+                channel.basicNack(tag, false, true);
+            } catch (IOException ex) {
+                log.error("拒绝消息失败", ex);
+            }
         }
-        if (loginLog.getOs().startsWith("Unknown")) {
-            loginLog.setOs("未知");
-        }
-        if (loginLog.getType() == null) {
-            loginLog.setType(2);
-        }
-        if (loginLogMapper.insert(loginLog) > 0) {
-            ipService.refreshIpDetailAsyncByLogIdAndLogin(loginLog.getId());
-        }
-        log.info("登录日志标识:{}，数据库添加成功", tag);
     }
 
     /**

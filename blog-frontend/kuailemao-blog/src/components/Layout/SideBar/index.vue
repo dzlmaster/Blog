@@ -25,7 +25,6 @@
     <div>
       <TagListCard/>
     </div>
-    <ChargingList/>
     <div>
       <Card title="每日鸡汤" prefix-icon="edit" suffix-icon="rotate" :isRotate="true" :isScale="true" @invoke="soupSub">
         <div class="soup-container">

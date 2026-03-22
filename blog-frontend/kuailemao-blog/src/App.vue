@@ -4,7 +4,7 @@
   </div>
   <!-- 全局loading -->
   <loading></loading>
-  <Music />
+  <Music v-if="env.VITE_MUSIC_SERVE" />
   <DevToolsBlocker :enableDevToolsBlocker="true" />
   <ContextMenu />
 </template>
@@ -15,6 +15,7 @@ import useWebsiteStore from "@/store/modules/website.ts";
 import DevToolsBlocker from "@/components/DevToolsBlocker/index.vue";
 import ContextMenu from "@/components/ContextMenu/index.vue";
 
+const env = import.meta.env
 const useWebsite = useWebsiteStore()
 
 onMounted(() => {

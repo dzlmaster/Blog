@@ -1,5 +1,5 @@
 // 上传banner
-import {message} from "ant-design-vue";
+import { message } from 'ant-design-vue'
 
 export async function uploadBanner(data: any, handleProgress: any) {
   return usePost('/banners/upload/banner', data, {
