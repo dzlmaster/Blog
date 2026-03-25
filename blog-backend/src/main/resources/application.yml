@@ -2,7 +2,7 @@ server:
   port: 8088
 spring:
   profiles:
-    active: "@profiles.active@"
+    active: dev
   security:
     jwt:
       key: jwt-key
@@ -13,7 +13,7 @@ spring:
     # 替换：【服务器公网IP】、【你的MySQL密码】
     url: jdbc:mysql://localhost:3306/blog?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     username: root
-    password: 123456
+    password: 19501215
   data:
     redis:
       # redis 端口（默认6379，不用改）
@@ -37,7 +37,7 @@ spring:
     # 默认用户名是guest（如果没改的话，直接填guest）
     username: guest
     # 替换：【你修改后的RabbitMQ密码】
-    password: guest
+    password: 123456
     listener:
       simple:
         retry:
@@ -77,30 +77,30 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
-  quartz:
-    # 将 Quartz 持久化方式修改为 jdbc
-    job-store-type: jdbc
-    properties:
-      org:
-        quartz:
-          scheduler:
-            # 实例节点 ID 自动生成
-            instanceId: AUTO
-          jobStore:
-            class: org.quartz.impl.jdbcjobstore.JobStoreTX
-            dataSource: quartz_jobs
-          dataSource:
-            quartz_jobs:
-              driver: com.mysql.cj.jdbc.Driver
-              # 关键修改：大写URL改为小写url
-              URL: jdbc:mysql://110.42.101.78:3306/blog?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-              user: root
-              password: 123456
+#  quartz:
+#    # 将 Quartz 持久化方式修改为 jdbc
+#    job-store-type: jdbc
+#    properties:
+#      org:
+#        quartz:
+#          scheduler:
+#            # 实例节点 ID 自动生成
+#            instanceId: AUTO
+#          jobStore:
+#            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+#            dataSource: quartz_jobs
+#          dataSource:
+#            quartz_jobs:
+#              driver: com.mysql.cj.jdbc.Driver
+#              # 关键修改：大写URL改为小写url
+#              URL: jdbc:mysql://110.42.101.78:3306/blog?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+#              user: root
+#              password: 123456
 mail:
   link:
     apply:
       # 邮箱审核友链回调地址（如果不开启）apply-notice 则无需在意该配置，随便填写即可
-      redirect-uri: https://test.admin.wakt.top/link/email/apply
+      redirect-uri: https://43.139.71.86/link/email/apply
   # 是否开启文章邮箱评论提醒
   article-email-notice: true
   # 是否开启文章邮箱回复提醒
@@ -152,16 +152,16 @@ oauth:
   gitee:
     client-id: ade7d1e76e3ca847ffb4b3f14dab3dc565ddbca7017d39d1d8f4223252a30ad2
     client-secret: 75f05f73900369be8cc825c609d721f7fb2b0c8156914eabf82bb4d6d654c911
-    redirect-uri: http://ctbu.tech:8088/oauth/gitee/callback
+    redirect-uri: http://43.139.71.86:8088/oauth/gitee/callback
   # Github登录
   github:
     client-id: Ov23liyQJQPFUVzg7Fbk
     client-secret: db0711d1f0550b571616e1025743cf8f2f7880d3
-    redirect-uri: http://ctbu.tech:8088/oauth/github/callback
+    redirect-uri: http://43.139.71.86:8088/oauth/github/callback
 
 web:
   index:
-    path: http://ctbu.tech/
+    path: http://43.139.71.86/
 
 # knife4j的增强配置
 knife4j:
@@ -179,9 +179,9 @@ http_pool:
 
 # 连接 minio
 minio:
-  endpoint: http://localhost:9000
+  endpoint: http://43.139.71.86:9000
   accessKey: minioadmin
-  secretKey: minioadmin
+  secretKey: Admin@123456
   bucketName: blog
 
 
